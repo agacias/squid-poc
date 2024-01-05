@@ -1,7 +1,7 @@
 version: "3.2"
 services:
     squid:
-        image: ubuntu/squid:latest
+        image: squid:latest
         deploy:
             mode: replicated
             replicas: 4
