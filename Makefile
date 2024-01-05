@@ -1,6 +1,6 @@
 default: build push
 
-REGISTRY ?= 
+REGISTRY ?= registry.red.zaragoza.es:5000
 
 APPLICATION ?= squid
 TAG ?= $(shell git describe --tags --abbrev=0)
