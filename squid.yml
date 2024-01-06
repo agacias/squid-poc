@@ -1,4 +1,4 @@
-version: "3.2"
+version: "3.8"
 services:
     squid:
         image: $REGISTRY:5000/squid:$TAG
@@ -26,4 +26,4 @@ services:
             - 8080:3128
 configs:
     rsyslog:
-        file: ./config/squid/rsyslog.cnf
+        file: ./config/squid/rsyslog.conf
