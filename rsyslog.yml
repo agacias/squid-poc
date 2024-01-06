@@ -3,6 +3,7 @@ version: '3.8'
 services:
     rsyslog:
         image: $REGISTRY:5000/rsyslog:$TAG
+        entrypoint: /docker-entrypoint.sh
         configs:
             - source: rsyslog
               target: /etc/rsyslog.conf
@@ -24,10 +25,13 @@ services:
             placement:
                 constraints:
                     - node.ip == $IP_REGISTRY
+        environment:
+            - TZ=Europe/Madrid
+            - SERVICE_NAME={{.Service.Name}}
 
 configs:
     rsyslog:
-        file: ./config/rsyslog/rsyslog.conf
+        file: ./rsyslog/config/rsyslog.conf
 
         
   

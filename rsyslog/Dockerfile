@@ -4,8 +4,6 @@ RUN apk add --no-cache rsyslog
 
 WORKDIR /var/log
 
-ENV TZ=UTC
-
 EXPOSE 514/tcp \
        514/udp
 
