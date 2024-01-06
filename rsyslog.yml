@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+    rsyslog:
+        image: $REGISTRY:5000/rsyslog:$TAG
+        configs:
+            - source: rsyslog
+              target: /etc/rsyslog.conf
+        ports:
+            - "514:514/tcp"
+            - "514:514/udp"
+        volumes:
+            - ./data:/var/log
+        restart: always
+
+configs:
+    rsyslog:
+        file: ./config/rsyslog/rsyslog.conf
+
+        
+  

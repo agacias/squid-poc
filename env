@@ -1,11 +1,14 @@
 
+TAG=$(git describe --tags --abbrev=0)
+export TAG
+
 # REGISTRY VARS
+# =============
 REGISTRY=registry.red.zaragoza.es
 IP_REGISTRY=$(hostname -i)
 USERNAME="play"
 PASSWORD="docker"
 PATH_REGISTRY=/registry
-
 
 export REGISTRY
 export IP_REGISTRY

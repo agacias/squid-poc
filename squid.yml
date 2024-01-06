@@ -1,7 +1,7 @@
 version: "3.2"
 services:
     squid:
-        image: registry.red.zaragoza.es:5000/squid:0.1
+        image: $REGISTRY:5000/squid:$TAG
         configs:
             - source: syslog
               target: /etc/squid/conf.d/syslog.conf
