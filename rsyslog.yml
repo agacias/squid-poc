@@ -11,7 +11,19 @@ services:
             - "514:514/udp"
         volumes:
             - ./data/rsyslog:/var/log
-        restart: always
+        deploy:
+            mode: replicated
+            replicas: 1
+            restart_policy:
+               condition: any
+               max_attempts: 3
+               window: 120s
+            resources:
+                limits:
+                    memory: 512m
+            placement:
+                constraints:
+                    - node.ip == $IP_REGISTRY
 
 configs:
     rsyslog:
