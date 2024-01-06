@@ -10,7 +10,7 @@ services:
             - "514:514/tcp"
             - "514:514/udp"
         volumes:
-            - ./data:/var/log
+            - ./data/rsyslog:/var/log
         restart: always
 
 configs:
