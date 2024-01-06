@@ -3,6 +3,7 @@ version: '3.8'
 services:
   syslog:
     image: balabit/syslog-ng:latest
+    entrypoint: ["/usr/sbin/syslog-ng", "-F", "--no-caps"]
     ports:
       - "514:514/udp"
 #    volumes:
