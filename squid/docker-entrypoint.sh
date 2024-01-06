@@ -3,4 +3,4 @@
 rsyslogd
 
 # Llamando al ENTRYPOINT predeterminado de la imagen ubuntu/squid
-exec /usr/local/bin/entrypoint.sh "$@"
+/usr/local/bin/entrypoint.sh -f /etc/squid/squid.conf -NYC
