@@ -31,7 +31,7 @@ services:
 
 configs:
     rsyslog:
-        file: ./rsyslog/config/rsyslog.conf
+        file: ./config/rsyslog.conf
 
         
   
