@@ -9,9 +9,13 @@ IP_REGISTRY=$(hostname -i)
 USERNAME="play"
 PASSWORD="docker"
 PATH_REGISTRY=/registry
-
 export REGISTRY
 export IP_REGISTRY
 export USERNAME
 export PASSWORD
 export PATH_REGISTRY
+
+# RSYSLOG
+# =======
+RSYSLOG_SERVER=$(hostname -i)
+export RSYSLOG_SERVER

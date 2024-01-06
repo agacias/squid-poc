@@ -3,9 +3,6 @@ services:
     squid:
         image: $REGISTRY:5000/squid:$TAG
         entrypoint: /docker-entrypoint.sh
-        configs:
-            - source: rsyslog
-              target: /etc/squid/conf.d/rsyslog.conf
         deploy:
             mode: replicated
             replicas: 4
@@ -25,6 +22,10 @@ services:
             - SERVICE_NAME={{.Service.Name}}
         ports:
             - 8080:3128
-configs:
-    rsyslog:
-        file: ./config/rsyslog.conf
+        logging:
+            driver: syslog
+            options:
+                syslog-address: "udp://$RSYSLOG_SERVER:514"
+                syslog-facility: "local0"
+                syslog-format: "rfc5424"
+                tag: "squid"
