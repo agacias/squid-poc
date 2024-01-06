@@ -12,4 +12,4 @@ push:
 	docker push ${REGISTRY}/${APPLICATION}:${TAG}
 
 deploy:
-	docker stack deploy --compose-file squid.yml proxy
+	docker stack deploy --with-registry-auth --compose-file squid.yml proxy
