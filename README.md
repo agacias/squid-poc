@@ -12,3 +12,5 @@ cd squid-poc
 bash registry-pwd.sh 
 
 make 
+
+tail -f /var/log/rsyslog/rsyslog
