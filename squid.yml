@@ -3,8 +3,8 @@ services:
     squid:
         image: $REGISTRY:5000/squid:$TAG
         configs:
-            - source: syslog
-              target: /etc/squid/conf.d/syslog.conf
+            - source: rsyslog
+              target: /etc/squid/conf.d/rsyslog.conf
         deploy:
             mode: replicated
             replicas: 4
@@ -25,5 +25,5 @@ services:
         ports:
             - 8080:3128
 configs:
-    syslog:
-        file: ./config/squid/syslog.cnf
+    rsyslog:
+        file: ./config/squid/rsyslog.cnf
