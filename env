@@ -1,0 +1,14 @@
+
+# REGISTRY VARS
+REGISTRY=registry.red.zaragoza.es
+IP_REGISTRY=$(hostname -i)
+USERNAME="play"
+PASSWORD="docker"
+PATH_REGISTRY=/registry
+
+
+export REGISTRY
+export IP_REGISTRY
+export USERNAME
+export PASSWORD
+export PATH_REGISTRY
