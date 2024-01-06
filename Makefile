@@ -12,5 +12,5 @@ push:
 
 deploy:
 	. ./env
-	docker stack deploy --with-registry-auth --compose-file rsyslog.yml rsyslog
-	docker stack deploy --with-registry-auth --compose-file squid.yml proxy   
+	docker stack deploy --with-registry-auth --compose-file rsyslog/rsyslog.yml rsyslog
+	docker stack deploy --with-registry-auth --compose-file squid/squid.yml squid  
