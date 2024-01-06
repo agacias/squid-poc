@@ -26,4 +26,4 @@ services:
             - 8080:3128
 configs:
     rsyslog:
-        file: ./config/squid/rsyslog.conf
+        file: ./squid/config/rsyslog.conf
