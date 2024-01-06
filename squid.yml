@@ -2,6 +2,9 @@ version: "3.2"
 services:
     squid:
         image: registry.red.zaragoza.es:5000/squid:0.1
+        configs:
+            - source: syslog
+              target: /etc/squid/conf.d/syslog.conf
         deploy:
             mode: replicated
             replicas: 4
@@ -21,3 +24,6 @@ services:
             - SERVICE_NAME={{.Service.Name}}
         ports:
             - 8080:3128
+configs:
+    syslog:
+        file: ./config/squid/syslog.cnf
