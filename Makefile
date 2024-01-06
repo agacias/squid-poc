@@ -12,5 +12,6 @@ push:
 
 deploy:
 	. ./env
+	mkdir -p /var/log/rsyslog
 	docker stack deploy --with-registry-auth --compose-file rsyslog/rsyslog.yml rsyslog
 	docker stack deploy --with-registry-auth --compose-file squid/squid.yml squid  
