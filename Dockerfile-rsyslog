@@ -2,9 +2,6 @@ FROM alpine:3.19
 
 RUN apk add --no-cache rsyslog
 
-COPY rsyslog.conf /etc/rsyslog.conf
-
-VOLUME /var/log
 WORKDIR /var/log
 
 ENV TZ=UTC
