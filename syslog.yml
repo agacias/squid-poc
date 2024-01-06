@@ -12,4 +12,4 @@ services:
       replicas: 1
       placement:
         constraints:
-          - node.role == manager
+          - node.ip == $IP_REGISTRY/32
