@@ -3,7 +3,6 @@ version: '3.8'
 services:
     rsyslog:
         image: $REGISTRY:5000/rsyslog:$TAG
-        entrypoint: /docker-entrypoint.sh
         configs:
             - source: rsyslog
               target: /etc/rsyslog.conf
