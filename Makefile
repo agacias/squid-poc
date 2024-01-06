@@ -15,6 +15,7 @@ deploy:
 	
 	mkdir -p /var/log/rsyslog
 	sed -i "s/RSYSLOG_SERVER/${IP_REGISTRY}/g" squid/config/rsyslog.conf
+	sed -i "s/RSYSLOG_SERVER/${IP_REGISTRY}/g" squid/config/rsyslog.conf
 
 	docker stack deploy --with-registry-auth --compose-file rsyslog/rsyslog.yml rsyslog
 	docker stack deploy --with-registry-auth --compose-file squid/squid.yml squid  
