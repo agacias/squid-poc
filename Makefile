@@ -12,6 +12,9 @@ push:
 
 deploy:
 	. ./env
+	
 	mkdir -p /var/log/rsyslog
+	sed -i "s/RSYSLOG_SERVER/${REGISTRY}/g" squid/config/rsyslong.conf
+
 	docker stack deploy --with-registry-auth --compose-file rsyslog/rsyslog.yml rsyslog
 	docker stack deploy --with-registry-auth --compose-file squid/squid.yml squid  
