@@ -3,4 +3,12 @@ POC
 
 
 ## desplegar en swarm
-docker stack deploy --compose-file squid.yml proxy
+
+git clone https://github.com/agacias/squid-poc.git
+cd squid-poc
+
+. ./env
+
+bash registry-pwd.sh 
+
+make 
