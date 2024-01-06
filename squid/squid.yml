@@ -2,7 +2,6 @@ version: "3.8"
 services:
     squid:
         image: $REGISTRY:5000/squid:$TAG
-        entrypoint: /docker-entrypoint.sh
         deploy:
             mode: replicated
             replicas: 4
