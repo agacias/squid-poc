@@ -13,7 +13,7 @@ function build_sibling_list() {
   echo "debug_options 9,5 20,9 4,2 ALL,1" >> ${SIBLING_CONF}
   for SERVER in $(dig "tasks.${SERVICE_NAME}" | grep "^tasks\.${SERVICE_NAME}\." | cut -f5 | sort)
   do
-     echo "cache_peer ${SERVER} sibling 3128 4827 htcp" >> ${SIBLING_CONF}
+     echo "cache_peer ${SERVER} sibling 3128 4827 htcp no-digest" >> ${SIBLING_CONF}
      echo "cache_peer_access ${SERVER} allow all" >> ${SIBLING_CONF}
   done
   sed -i "/cache_peer ${MI_IP}/d" ${SIBLING_CONF}
