@@ -14,8 +14,10 @@ function build_sibling_list() {
   for SERVER in $(dig "tasks.${SERVICE_NAME}" | grep "^tasks\.${SERVICE_NAME}\." | cut -f5 | sort)
   do
      echo "cache_peer ${SERVER} sibling 3128 4827 htcp" >> ${SIBLING_CONF}
+     echo "cache_peer_access ${SERVER} allow all" >> ${SIBLING_CONF}
   done
   sed -i "/cache_peer ${MI_IP}/d" ${SIBLING_CONF}
+  sed -i "/cache_peer_access ${MI_IP}/d" ${SIBLING_CONF}
 }
 
 function check_reload_sibling() {
