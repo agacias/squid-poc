@@ -30,8 +30,6 @@ services:
                 syslog-address: "udp://$RSYSLOG_SERVER:514"
                 syslog-facility: "local0"
                 syslog-format: "rfc5424"
-                tag: "squid"
-
 
 configs:
     squid-custom:
