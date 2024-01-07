@@ -40,4 +40,4 @@ check_reload_sibling &
 
 
 # call entrypoint standard (ubuntu/squid image)
-/usr/local/bin/entrypoint.sh "$@"
+/usr/local/bin/entrypoint.sh -f /etc/squid/squid.conf -NYC
