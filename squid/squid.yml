@@ -2,6 +2,7 @@ version: "3.8"
 services:
     squid:
         image: $REGISTRY:5000/squid:$TAG
+        entrypoint: /entrypoint.sh
         configs:
             - source: squid-custom
               target: /etc/squid/conf.d/squid-custom.conf
