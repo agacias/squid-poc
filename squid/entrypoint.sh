@@ -20,8 +20,8 @@ function build_sibling_list() {
   sed -i "/cache_peer_access ${MI_IP}/d" ${SIBLING_CONF}
 
 
-  echo "udp_incoming_address 0.0.0.0" >> ${SIBLING_CONF}
-  echo "udp_outgoing_address 0.0.0.0" >> ${SIBLING_CONF}
+  echo "udp_incoming_address ${MI_IP}" >> ${SIBLING_CONF}
+  echo "udp_outgoing_address 255.255.255.255" >> ${SIBLING_CONF}
 }
 
 function check_reload_sibling() {
