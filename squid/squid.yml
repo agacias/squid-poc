@@ -25,6 +25,8 @@ services:
             - SERVICE_NAME={{.Service.Name}}
         ports:
             - 8080:3128
+            - 3130:3130
+            - 4827:4827
         logging:
             driver: syslog
             options:
