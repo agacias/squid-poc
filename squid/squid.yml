@@ -25,6 +25,6 @@ services:
             driver: syslog
             options:
                 syslog-address: "udp://$RSYSLOG_SERVER:514"
-                syslog-facility: "local0"
+                syslog-facility: "daemon"
                 syslog-format: "rfc5424"
                 tag: "squid"
