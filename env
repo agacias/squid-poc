@@ -4,7 +4,7 @@ export TAG
 
 # REGISTRY VARS
 # =============
-REGISTRY=registry.red.zaragoza.es
+REGISTRY=registry.org
 IP_REGISTRY=$(hostname -i)
 USERNAME="play"
 PASSWORD="docker"
