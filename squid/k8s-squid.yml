@@ -37,3 +37,21 @@ spec:
       - name: squid-custom
         configMap:
           name: squid-custom-config
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: squid-custom-config
+data:
+  squid-custom.conf: |
+    # Logs
+    # ====
+
+    logformat customlog   %>a %[ui %[un %{%Y/%m/%d-%H:%M:%S}tl.%03tu "%rm %ru HTTP/%rv" %>Hs %<st "%{Referer}>h" "%{User-Agent}>h" %Ss:%Sh
+    access_log daemon:/var/log/squid/access.log customlog
+
+    icp_access allow all
+    icp_port 3130 
+
+    htcp_access allow all
+    htcp_port 4827 
