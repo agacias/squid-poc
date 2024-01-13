@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: squid
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: squid
+  template:
+    metadata:
+      labels:
+        app: squid
+    spec:
+      containers:
+      - name: squid
+        image: squid:latest
+        imagePullPolicy: IfNotPresent
+        command: ["/entrypoint.sh"]
+        ports:
+        - containerPort: 3128
+        resources:
+          limits:
+            memory: 512Mi
+        env:
+        - name: TZ
+          value: "Europe/Madrid"
+        - name: SERVICE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        volumeMounts:
+        - name: squid-custom
+          mountPath: /etc/squid/conf.d/squid-custom.conf
+          subPath: squid-custom.conf
+      volumes:
+      - name: squid-custom
+        configMap:
+          name: squid-custom-config
