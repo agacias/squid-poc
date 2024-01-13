@@ -16,7 +16,6 @@ spec:
       - name: squid
         image: docker.io/ubuntu/squid:latest
         imagePullPolicy: IfNotPresent
-#        command: ["/entrypoint.sh"]
         ports:
         - containerPort: 3128
         resources:
@@ -30,31 +29,26 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         volumeMounts:
-        - name: squid-custom
-          mountPath: /etc/squid/conf.d/squid-custom.conf
-          subPath: squid-custom.conf
+        - name: squid-config-volume
+          mountPath: /etc/squid/conf.d/squid.conf
+          subPath: squid.conf
       volumes:
-      - name: squid-custom
+      - name: squid-config-volume
         configMap:
-          name: squid-custom-config
+          name: squid-config
+
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: squid-custom-config
+  name: squid-config
 data:
-  squid-custom.conf: |
+  squid.conf: |
     # Logs
     # ====
 
     logformat customlog   %>a %[ui %[un %{%Y/%m/%d-%H:%M:%S}tl.%03tu "%rm %ru HTTP/%rv" %>Hs %<st "%{Referer}>h" "%{User-Agent}>h" %Ss:%Sh
     access_log daemon:/var/log/squid/access.log customlog
-
-    icp_access allow all
-    icp_port 3130 
-
-    htcp_access allow all
-    htcp_port 4827 
 
 ---
 apiVersion: v1
