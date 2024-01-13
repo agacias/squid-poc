@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: squid
-        image: ubuntu/squid:latest
+        image: docker.io/ubuntu/squid:latest
         imagePullPolicy: IfNotPresent
         command: ["/entrypoint.sh"]
         ports:
