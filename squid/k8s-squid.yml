@@ -68,3 +68,5 @@ spec:
     - protocol: TCP
       port: 3128
       targetPort: 3128
+      nodePort: 8080
+  type: NodePort
