@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: squid
-        image: squid:latest
+        image: ubuntu/squid:latest
         imagePullPolicy: IfNotPresent
         command: ["/entrypoint.sh"]
         ports:
